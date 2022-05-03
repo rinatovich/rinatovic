@@ -1,0 +1,28 @@
+.pages_list{
+    justify-content: center;
+    width: 1000px;
+    overflow: hidden;
+}
+.pages_list ul{
+    transition: transform 0.5s linear;
+    transform: translateX(420px);
+    list-style-type: none;
+    display: flex;
+}
+.pages_list ul .pages_item{
+    width: 800px;
+    height: 600px;
+}
+.pages_item .preview img{
+    width: 800px;
+    height: 500px;
+}
+.pages_item{
+    margin: 0 20px;
+}
+.pages_item:first-child{
+    margin-right: 0;
+}
+.pages_item:last-child{
+    margin-left: 0;
+}

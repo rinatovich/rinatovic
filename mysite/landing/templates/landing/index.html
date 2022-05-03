@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css"  rel="stylesheet" href="{% static  'landing/css/style.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static  'landing/css/btn.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static  'landing/css/all.css' %}">
+    <link rel="stylesheet" href="{% static  'landing/css/bg.css' %}">
+    <link rel="stylesheet" href="{% static  'landing/css/karusel.css' %}">
+    <title>rinatovic</title>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="navbar">
+        <div class="brand">Rinatovic</div>
+        <ul class="nav">
+            {% for m in menu %}
+          <li><a href="#">{{m}}</a></li>
+            {% endfor %}
+        </ul>
+      </div>
+      <div class="initials">
+        <div class="name">
+          Valiaxmad<br>Rinatovich
+        </div>
+        <div class="about">
+          jr. fullstack dev.<br>22 y.o.,Tashkent
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="parallax about_me gray section">
+    <div class="container">
+      <div class="title">About me</div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit provident cumque accusamus possimus? Sed quaerat rerum, perferendis saepe amet aspernatur nihil culpa delectus veniam quia iure eligendi quasi, porro omnis quod voluptate autem deserunt? Delectus, eum et aliquid nesciunt assumenda libero accusantium necessitatibus tempore eligendi modi dolorum aliquam reprehenderit nisi.
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti delectus blanditiis soluta, nobis iure hic, deserunt reprehenderit debitis porro molestiae odio vel quasi magnam possimus. Laudantium est ipsa quidem eaque.
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae voluptatum ducimus fugit nisi provident cumque consectetur eius sapiente eum ut aperiam, architecto doloribus dolor voluptatibus porro totam laborum fugiat eligendi non ullam nihil et dolore. Eum officiis fugiat dolorum neque.
+      </p>
+    </div>
+  </section>
+  <section class="skills section">
+    <div class="container">
+      <div class="title">
+        Skills
+      </div>
+      <div class="subtitle">
+        I work in such langs and technologies as
+      </div>
+      <div class="skill_list">
+        {% for s in skills %}
+        <div class="item">
+          <div class="logo">
+            <img src="{{s.image.url}}" alt="">
+          </div>
+          <div class="title">{{ s.title }}</div>
+          <ul class="rating">
+            {% for i in stars %}
+            {% if i < s.stars %}
+            <li class="active"><i class="fa-solid fa-star"></i></li>
+            {% else %}
+            <li><i class="fa-solid fa-star"></i></li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% if pages %}
+  <section class="portfolio gray section">
+    <div class="container">
+      <div class="title">Portfolio</div>
+      <div class="pages_list">
+        <ul id="karusel">
+        {% for p in pages %}
+          <li class="pages_item">
+              <div class="preview">
+                <img  src="{{p.image.url}}" alt="" height="550px">
+              </div>
+              <a target="blank" href="{% static p.url %}">{{p.title}}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+  <footer class="footer">
+    <div class="container">
+      <div class="social_icons">
+        <div class="icon">
+          <a href="#">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+        </div>
+        <div class="icon">
+          <a href="#">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+        </div>
+        <div class="icon">
+          <a href="#">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+        <div class="icon">
+          <a href="#">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        </div>
+        <div class="icon">
+          <a href="#">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+        <div class="icon">
+          <a href="#">
+            <i class="fa-brands fa-vk"></i>
+          </a>
+        </div>
+      </div>
+      <p>
+        Created by rinatovic in 2022
+      </p>
+    </div>
+  </footer>
+
+  <script src="{% static 'landing/js/script.js' %}"></script>
+  <script src="{% static 'landing/js/all.js' %}"></script>
+</body>
+</html>
