@@ -22,5 +22,5 @@ class Webpages(models.Model):
     content = models.TextField(blank=True)
 
     def url(self):
-        url = f'templates/{self.title}/index.html'
+        url = f'landing/templates/{self.title}/index.html'
         return url
