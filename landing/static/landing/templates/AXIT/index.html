@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AXIT</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jQuery.js"></script>
+</head>
+<body>
+<svg style="display:none">
+	<symbol id="facebook" viewBox="0 0 56.693 56.693">
+		<path d="M40.43,21.739h-7.645v-5.014c0-1.883,1.248-2.322,2.127-2.322c0.877,0,5.395,0,5.395,0V6.125l-7.43-0.029  c-8.248,0-10.125,6.174-10.125,10.125v5.518h-4.77v8.53h4.77c0,10.947,0,24.137,0,24.137h10.033c0,0,0-13.32,0-24.137h6.77  L40.43,21.739z"/>
+	</symbol>
+	<symbol	id="twitter" viewBox="0 0 512 512">
+		<path d="M492,109.5c-17.4,7.7-36,12.9-55.6,15.3c20-12,35.4-31,42.6-53.6c-18.7,11.1-39.4,19.2-61.5,23.5  C399.8,75.8,374.6,64,346.8,64c-53.5,0-96.8,43.4-96.8,96.9c0,7.6,0.8,15,2.5,22.1C172,179,100.6,140.4,52.9,81.7  c-8.3,14.3-13.1,31-13.1,48.7c0,33.6,17.1,63.3,43.1,80.7C67,210.7,52,206.3,39,199c0,0.4,0,0.8,0,1.2c0,47,33.4,86.1,77.7,95  c-8.1,2.2-16.7,3.4-25.5,3.4c-6.2,0-12.3-0.6-18.2-1.8c12.3,38.5,48.1,66.5,90.5,67.3c-33.1,26-74.9,41.5-120.3,41.5  c-7.8,0-15.5-0.5-23.1-1.4C62.9,432,113.8,448,168.4,448C346.6,448,444,300.3,444,172.2c0-4.2-0.1-8.4-0.3-12.5  C462.6,146,479,128.9,492,109.5z"/>
+	</symbol>
+	<symbol id="telegramm" viewBox="0 0 512 512">
+		<g><path d="M484.689,98.231l-69.417,327.37c-5.237,23.105-18.895,28.854-38.304,17.972L271.2,365.631l-51.034,49.086    c-5.647,5.647-10.372,10.372-21.256,10.372l7.598-107.722L402.539,140.23c8.523-7.598-1.848-11.809-13.247-4.21L146.95,288.614    L42.619,255.96c-22.694-7.086-23.104-22.695,4.723-33.579L455.423,65.166C474.316,58.081,490.85,69.375,484.689,98.231z"/></g>
+	</symbol>
+	<symbol	id="instagramm" viewBox="0 0 512 512">
+		<g id="XMLID_138_"><path d="M378.7,247.7c-3.3-8.5-7.7-15.7-14.9-22.9c-7.2-7.2-14.4-11.6-22.9-14.9c-8.2-3.2-17.7-5.4-31.4-6   c-13.8-0.6-18.2-0.8-53.4-0.8s-39.6,0.1-53.4,0.8c-13.8,0.6-23.2,2.8-31.4,6c-8.5,3.3-15.7,7.7-22.9,14.9s-11.6,14.4-14.9,22.9   c-3.2,8.2-5.4,17.7-6,31.4c-0.6,13.8-0.8,18.2-0.8,53.4s0.1,39.6,0.8,53.4c0.6,13.8,2.8,23.2,6,31.4c3.3,8.5,7.7,15.7,14.9,22.9   c7.2,7.2,14.4,11.6,22.9,14.9c8.2,3.2,17.7,5.4,31.4,6c13.8,0.6,18.2,0.8,53.4,0.8s39.6-0.1,53.4-0.8c13.8-0.6,23.2-2.8,31.4-6   c8.5-3.3,15.7-7.7,22.9-14.9c7.2-7.2,11.6-14.4,14.9-22.9c3.2-8.2,5.4-17.7,6-31.4c0.6-13.8,0.8-18.2,0.8-53.4s-0.1-39.6-0.8-53.4   C384.1,265.3,381.9,255.9,378.7,247.7z M361.4,384.8c-0.6,12.6-2.7,19.5-4.5,24c-2.3,6-5.2,10.4-9.7,14.9s-8.8,7.3-14.9,9.7   c-4.6,1.8-11.4,3.9-24,4.5c-13.7,0.6-17.7,0.8-52.3,0.8s-38.7-0.1-52.3-0.8c-12.6-0.6-19.5-2.7-24-4.5c-6-2.3-10.4-5.2-14.9-9.7   s-7.3-8.8-9.7-14.9c-1.8-4.6-3.9-11.4-4.5-24c-0.6-13.7-0.8-17.8-0.8-52.3s0.1-38.7,0.8-52.3c0.6-12.6,2.7-19.5,4.5-24   c2.3-6,5.2-10.4,9.7-14.9s8.8-7.3,14.9-9.7c4.6-1.8,11.4-3.9,24-4.5c13.7-0.6,17.8-0.8,52.3-0.8s38.7,0.1,52.3,0.8   c12.6,0.6,19.5,2.7,24,4.5c6,2.3,10.4,5.2,14.9,9.7s7.3,8.8,9.7,14.9c1.8,4.6,3.9,11.4,4.5,24c0.6,13.7,0.8,17.8,0.8,52.3   S362,371.2,361.4,384.8z" id="XMLID_142_"/><path d="M256,266c-36.7,0-66.5,29.8-66.5,66.5S219.3,399,256,399s66.5-29.8,66.5-66.5S292.7,266,256,266z    M256,375.7c-23.8,0-43.2-19.3-43.2-43.2c0-23.8,19.3-43.2,43.2-43.2s43.2,19.3,43.2,43.2C299.2,356.3,279.8,375.7,256,375.7z" id="XMLID_145_"/><circle cx="325.1" cy="263.4" id="XMLID_143_" r="15.5"/></g>
+	</symbol>
+	<symbol	id="github" viewBox="0 0 24 24">
+		<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+	</symbol>
+	<symbol	id="wifi" viewBox="0 0 512 512">
+		<g><path d="M256.1,96L256.1,96c-79.9,0-155.7,29.9-213.9,84.1L32,189.6l9.9,9.8l32.3,32l9.3,9.2l9.6-8.8   c44.5-40.9,102.3-63.5,162.8-63.5c60.5,0,118.4,22.6,162.8,63.5l9.6,8.8l9.3-9.2l32.3-32l9.9-9.8l-10.2-9.5   C411.6,125.9,335.7,96,256.1,96z"/><path d="M397.4,256.4c-38.8-35.1-88.9-54.4-141.1-54.4h-0.1h-0.3h-8.5l-0.1,0.2c-49.2,2-96,21.1-132.6,54.2l-10.5,9.5l10.1,10   l32.7,32.4l9.1,9l9.6-8.4c25.3-22.2,57.4-34.5,90.3-34.5c33.1,0,65.2,12.3,90.5,34.5l9.6,8.4l9.1-9l32.7-32.4l10.1-10L397.4,256.4z   "/><path d="M256.2,416l9.6-9.5l52.8-52.2l10.6-10.5l-11.6-9.5c-15.4-11.4-32.4-20-61.5-20c-29,0-44.9,9.4-61.5,20l-11.5,9.5l10.6,10.5   l52.8,52.2L256.2,416z"/></g>
+	</symbol>
+	<symbol id="download"  viewBox="0 0 48 48">
+		<path d="M0 0h48v48h-48z" fill="none"/><path d="M38.71 20.07c-1.36-6.88-7.43-12.07-14.71-12.07-5.78 0-10.79 3.28-13.3 8.07-6.01.65-10.7 5.74-10.7 11.93 0 6.63 5.37 12 12 12h26c5.52 0 10-4.48 10-10 0-5.28-4.11-9.56-9.29-9.93zm-4.71 5.93l-10 10-10-10h6v-8h8v8h6z"/>
+	</symbol>
+	<symbol id="upload" viewBox="0 0 24 16">
+		<g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill="orange" id="Core" transform="translate(-126.000000, -46.000000)"><g id="backup" transform="translate(126.000000, 46.000000)"><path d="M19.4,6 C18.7,2.6 15.7,0 12,0 C9.1,0 6.6,1.6 5.4,4 C2.3,4.4 0,6.9 0,10 C0,13.3 2.7,16 6,16 L19,16 C21.8,16 24,13.8 24,11 C24,8.4 21.9,6.2 19.4,6 L19.4,6 Z M14,9 L14,13 L10,13 L10,9 L7,9 L12,4 L17,9 L14,9 L14,9 Z" id="Shape"/></g></g></g>
+	</symbol>
+
+</svg>
+
+
+
+
+
+
+<!----------- Navbar -------------->
+<nav class="navbar" id="navbar">
+	<div class="container">
+		<div class="navbar__inner">
+			<div class="nav__logo">
+				<a href="#">
+					<img src="img/Logo.png">
+				</a>
+			</div>
+			<div class="navigation">
+				<a class="nav__items" href="#" data-scroll="#features">Features</a>
+				<a class="nav__items" href="#" data-scroll="#about">About</a>
+				<a class="nav__items" href="#" data-scroll="#pricing">Pricing</a>
+				<a class="nav__items" href="#" data-scroll="#reviews">Reviews</a>
+				<a class="nav__items" href="#" data-scroll="#contact">Contact</a>
+			</div>
+			<button type="button" class="burger" id="navToggle">
+				<span class="burger__item">Menu</span>
+			</button>
+		</div>		
+	</div>	
+</nav><!-- Navbar -->
+
+
+
+<!----------- Header -------------->
+<header class="header">
+	<div class="container">
+		<div class="header__main">
+			<div class="header__inner">
+				<div class="header__logo">
+					<img src="img/Header__Logo.png">
+				</div>
+				<h1 class="header__title">MODERN AXURE TEMPLATE FOR BEAUTIFUL PROTOTYPES</h1>
+				<hr class="line">
+				<div class="header__subtitle">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit.
+					</p>
+				</div>
+				<a href=""><div class="btn-download">Download</div></a>			
+			</div>
+			<div class="header__inner">
+				<div class="header__form">
+					<h3 class="form__title">Try Your <span id="free">FREE</span> Trial Today</h3>
+					<input type="text" name="name" class="input" value="name">
+					<input type="text" name="mail" class="input" value="email">
+					<input type="password" name="password" class="input" value="password"> 
+					<a href=""><div class="btn">Get Started</div></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</header><!-- Header -->
+
+
+
+
+<!----------- SocialMedia -------------->
+<div class="social__media">
+	<div class="container">
+		<div class="social__inner">
+			<div class="stext">
+				<h4 class="s_t">Social Media</h4>
+				<div class="s_s">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
+				</div>
+			</div>
+			<div class="s_icon">
+				<a class="icon" href="#" target="blank">
+					<svg class="social__icon"> 
+						<use xlink:href="#facebook"></use>
+					</svg>				
+				</a>
+				<a class="icon" href="#" target="blank">
+					<svg class="social__icon"> 
+						<use xlink:href="#instagramm"></use>
+					</svg>				
+				</a>
+				<a class="icon" href="#" target="blank">
+					<svg class="social__icon"> 
+						<use xlink:href="#twitter"></use>
+					</svg>				
+				</a>
+				<a class="icon" href="#" target="blank">
+					<svg class="social__icon"> 
+						<use xlink:href="#telegramm"></use>
+					</svg>				
+				</a>
+				<a class="icon" href="#" target="blank">
+					<svg class="social__icon"> 
+						<use xlink:href="#github"></use>
+					</svg>				
+				</a>
+				<a class="icon" href="#" target="blank">
+					<svg class="social__icon"> 
+						<use xlink:href="#wifi"></use>
+					</svg>				
+				</a>																				
+			</div>		
+		</div>
+	</div>
+</div><!-- SocialMedia -->
+
+
+
+
+
+<!----------- Feature 1 -------------->
+<div class="featur__1" id="features">
+	<div class="container">
+		<div class="feature__blog">
+			<div class="feature__inner">
+				<div class="tabs">TAB 1</div>
+				<div class="tabs">TAB 2</div>
+				<div class="tabs">TAB 3</div>
+			</div>
+			<div class="feature__inner">
+				<h3 class=ft>Tabs with soft transitioning effect.</h3>
+				<div class="fs">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius.</p>
+				</div>
+				<a href="#">
+					<div class="btn__f">
+						Download
+					</div>
+				</a>	
+			</div>
+			<div class="feature__inner">
+				<img src="img/Features/1.png">
+			</div>
+		</div>
+	</div>
+</div><!-- Feature 1 -->
+
+
+<!----------- Feature 2 -------------->
+<div class="feature__2">
+	<div class="container">
+		<div class="features__inner">
+			<div class="features__block">
+				<div class="insert__img">
+					<img width="460px" height="305px" id="f__img" src="img/Features/insert__img.png">
+				</div>
+			</div>
+			<div class="features__block">
+				<h3 class="fb__titlle">Sub list section</h3>
+				<hr class="f line">
+				<div class="fb__subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</div>
+				<div class="fb__content">
+					<div class="download__img">
+						<a href="">
+							<svg class="load">
+								<use  xlink:href="#upload"></use> 
+							</svg>							
+						</a>	
+					</div>
+					<div class="fb__item">
+						<h4 class="title__title">Title</h4>
+						<p class="Feature__par">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+					</div>
+				</div>
+				<div class="fb__content">
+					<div class="download__img">
+						<a href="">
+							<svg class="load">
+								<use  xlink:href="#download"></use> 
+							</svg>	
+						</a>
+					</div>
+					<div class="fb__item">
+						<h4 class="title__title">Title</h4>
+						<p class="Feature__par">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+					</div>
+				</div>				
+			</div>			
+		</div>
+	</div>
+</div><!-- Feature 2 -->
+
+
+
+
+
+<!----------- Feature 3 -------------->
+<div class="feature__3">
+	<div class="container">
+		<div class="features__inner">
+			<div class="features__block">
+				<h3 class="fb__titlle">Sub list section</h3>
+				<hr class="f line">
+				<div class="fb__subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 	e	iusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+				</div>				
+			</div>
+			<div class="features__block">
+				<div class="insert__img">
+					<img width="460px" height="305px" id="f__img" src="img/Features/insert__img.png">
+				</div>				
+			</div>
+		</div>
+	</div>
+</div><!-- feature__3 -->
+
+
+
+
+
+
+
+<!----------- Our process -------------->
+<div class="our__process" id="about">
+	<div class="container">
+		<h2 class="process__title">WHY THIS IS AWESOME</h2>
+		<hr class="line op">
+		<div class="psubtitle">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		</div>
+		<div class="our_pr">
+			<div class="op__item">
+				<img  width="30px" height="30px" class="op__icon" src="img/Features/icon__1.jpg">
+				<h2 class="op__title">Thoughtful Design</h2>
+				<div class="opsubtitle">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis quibusdam quo in ad soluta accusantium expedita, similique debitis sit tenetur nihil beatae dicta magni dolorem explicabo consequuntur deleniti sint ipsa.</p>
+				</div>
+			</div>
+			<div  class="op__item">
+				<img width="30px" height="30px" class="op__icon" src="img/Features/icon__2.jpg">
+				<h2 class="op__title">Well Crafted</h2>
+				<div class="opsubtitle">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis quibusdam quo in ad soluta accusantium expedita, similique debitis sit tenetur nihil beatae dicta magni dolorem explicabo consequuntur deleniti sint ipsa.</p>
+				</div>
+			</div>
+			<div class="op__item">
+				<img width="30px" height="30px" class="op__icon" src="img/Features/icon__3.jpg">
+				<h2 class="op__title">Easy to Customize</h2>
+				<div class="opsubtitle">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis quibusdam quo in ad soluta accusantium expedita, similique debitis sit tenetur nihil beatae dicta magni dolorem explicabo consequuntur deleniti sint ipsa.</p>
+				</div>
+			</div>						
+		</div>
+	</div>
+</div><!-- our process -->
+
+
+
+
+
+<!----------- Pricing -------------->
+<div class="pricing" id="pricing">
+	<div class="container">
+		<h2 class="process__title">PRICING OPTIONS</h2>
+		<hr class="line op">
+		<div class="psubtitle">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		</div>
+		<div class="pricing__blog">
+			<div class="slot__inner">
+				<div class="pricing__slot">
+					<h4 class="slot__title">Basic</h4>
+					<div class="price"><span class="dollar">$</span>0
+					<div class="price__title">Free for Life</div>
+					</div>
+					<div class="price__items">1 gb of space</div>
+					<div class="price__items">10 gb of bandwidth</div>	
+					<div class="price__items">3 websites</div>
+					<div class="price__items">Basic Customization</div>
+					<div class="price__items">wordpress integration</div>
+					<div class="price__items">email support</div>
+				</div>			
+			</div>
+			<div class="slot__inner">
+				<div class="pricing__slot">
+					<h4 class="slot__title">Professional</h4>
+					<div class="price"><span class="dollar">$</span>19
+					<div class="price__title">Monthly Payment</div></div>
+					<div class="price__items orange">OUR MOST POPULAR</div>
+					<div class="price__items">10 gb of bandwidth</div>	
+					<div class="price__items">3 websites</div>
+					<div class="price__items">Basic Customization</div>
+					<div class="price__items">wordpress integration</div>
+					<div class="price__items">email support</div>
+					<div class="price__items">email support</div>					
+				</div>			
+			</div>
+			<div class="slot__inner">
+				<div class="pricing__slot">
+					<h4 class="slot__title">Enterprise</h4>
+					<div class="price"><span class="dollar">$</span>70
+						<div class="price__title">Monthly Payment</div></div>
+				
+					<div class="price__items">1 gb of space</div>
+					<div class="price__items">10 gb of bandwidth</div>	
+					<div class="price__items">3 websites</div>
+					<div class="price__items">Basic Customization</div>
+					<div class="price__items">wordpress integration</div>
+					<div class="price__items">email support</div>
+				</div>			
+			</div>
+		</div>
+	</div>
+</div><!-- Pricing -->
+
+
+
+
+
+<!----------- Testimonials -------------->
+<div class="testimpnials" id="reviews">
+	<div class="container">
+		<h2 class="process__title">WHAT OUR CUSTOMERS ARE SAYING</h2>
+		<hr class="line op">
+		<div class="psubtitle">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		</div>
+		<div class="testimonials__inner">
+			<div class="testimpnials__block">
+				<div class="thoughts"><div class="text__t">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					</div></div>
+				<div class="testimonials__person">
+					<img class="avatar" src="img/Testimonial/avatar.png">
+					<div class="name_profession">
+						<h3 name>Jeremy H.</h3>
+						<div class="degree">Manager</div>
+					</div>
+				</div>
+			</div>
+			<div class="testimpnials__block">
+				<div class="thoughts"><div class="text__t">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</div></div>
+				<div class="testimonials__person">
+					<img class="avatar" src="img/Testimonial/avatar.png">
+					<div class="name_profession">
+						<h3 name>John S.</h3>
+						<div class="degree">Freelancer</div>
+					</div>
+				</div>				
+			</div>
+			<div class="testimpnials__block">
+				<div class="thoughts"><div class="text__t">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud .</div></div>
+				<div class="testimonials__person">
+					<img class="avatar" src="img/Testimonial/avatar.png">
+					<div class="name_profession">
+						<h3 name>Susan W.</h3>
+						<div class="degree">Photographer</div>
+					</div>
+				</div>
+			</div>
+		</div>			
+	</div><!-- container -->
+</div><!-- testimpnials -->
+
+
+<!------------------- custom section -------------->
+<div class="custom__section">
+	<div class="container">
+		<h2 class="process__title customiz">STYLISH AXURE DESIGN</h2>
+		<hr class="line custom">
+		<div class="psubtitle customiz">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		</div>
+		<a href="">
+			<div class="btn__custom">
+				Download
+			</div>
+		</a>		
+	</div>
+</div><!-- custom section -->
+
+
+
+<!------------------- Contact us -------------->
+<div class="contact__us" id="contact">
+	<div class="container">
+		<h2 class="process__title">CONTACT US</h2>
+		<hr class="line op">
+		<div class="psubtitle">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		</div>
+		<div class="contactus__form">
+			<div class="initials">
+				<input type="text" name="name" class="input" value="name">
+				<input type="text" name="mail" class="input" value="email">
+				<input type="password" name="password" class="input" value="password">
+			</div>
+			<div class="message">
+				<textarea class="mesagge__text" name="text" title="message"></textarea>
+			</div> 
+		</div>
+		<a href=""><div class="btn__contact">Send Message</div></a>	
+	</div>
+</div><!-- contact us -->
+
+
+
+<footer class="footer">
+			<div class="f_icon">
+				<a class="icon" href="#" target="blank">
+					<svg class="Fsocial__icon"> 
+						<use xlink:href="#facebook"></use>
+					</svg>				
+				</a>
+				<a class="icon" href="#" target="blank">
+					<svg class="Fsocial__icon"> 
+						<use xlink:href="#instagramm"></use>
+					</svg>				
+				</a>
+				<a class="icon" href="#" target="blank">
+					<svg class="Fsocial__icon"> 
+						<use xlink:href="#twitter"></use>
+					</svg>				
+				</a>
+				<a class="icon" href="#" target="blank">
+					<svg class="Fsocial__icon"> 
+						<use xlink:href="#telegramm"></use>
+					</svg>				
+				</a>
+				<a class="icon" href="#" target="blank">
+					<svg class="Fsocial__icon"> 
+						<use xlink:href="#github"></use>
+					</svg>				
+				</a>
+				<a class="icon" href="#" target="blank">
+					<svg class="Fsocial__icon"> 
+						<use xlink:href="#wifi"></use>
+					</svg>				
+				</a>																				
+			</div>	
+			<div class="copyrigth">
+				© 2015 Axure Themes
+			</div>	
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
